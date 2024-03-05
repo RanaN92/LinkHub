@@ -1,7 +1,8 @@
 #!/bin/sh
+
 set -e
 
-cd packages/backend
+cd /packages/backend
 
 if [ -n "$WORKER" ]; then
   yarn start:worker
