@@ -1,0 +1,68 @@
+version: '3.9'
+services:
+  main:
+    image: rana921/link_hub:tagname
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.compose
+    ports:
+      - '3000:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      - HOST=localhost
+      - PROTOCOL=http
+      - PORT=3000
+      - APP_ENV=production
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DATABASE=automatisch
+      - POSTGRES_USERNAME=automatisch_user
+      - POSTGRES_PASSWORD=automatisch_password
+      - ENCRYPTION_KEY=RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
+      - WEBHOOK_SECRET_KEY=EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
+      - APP_SECRET_KEY=DX/PNMldvB3pX9Nq1DSFw0lOFy/gfRsQmKKTKgwc1HU1H+tr
+  worker:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.compose
+    entrypoint: /compose-entrypoint.sh
+    depends_on:
+      - main
+    environment:
+      - APP_ENV=production
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DATABASE=automatisch
+      - POSTGRES_USERNAME=automatisch_user
+      - POSTGRES_PASSWORD=automatisch_password
+      - ENCRYPTION_KEY=ENCRYPTION_KEY=RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
+      - WEBHOOK_SECRET_KEY=EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
+      - APP_SECRET_KEY=DX/PNMldvB3pX9Nq1DSFw0lOFy/gfRsQmKKTKgwc1HU1H+tr
+      - WORKER=true=
+  postgres:
+    image: 'postgres:14.5'
+    environment:
+      - POSTGRES_DB=automatisch
+      - POSTGRES_USER=automatisch_user
+      - POSTGRES_PASSWORD=automatisch_password
+    ports:
+      - 35432:5432  
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Mount the volume with appropriate permissions
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: 'redis:7.0.4'
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:  # Define a named volume for PostgreSQL data
+  redis_data:
