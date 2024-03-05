@@ -14,7 +14,7 @@ ENV ENCRYPTION_KEY=RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
 ENV WEBHOOK_SECRET_KEY=EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
 RUN yarn install
 
-RUN if [ "$WORKER" != "true" ]; then cd packages/backend && yarn build; fi
+RUN if [ "$WORKER" != "true" ]; then cd /packages/backend && yarn build; fi
 
 
 RUN \
