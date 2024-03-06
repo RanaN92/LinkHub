@@ -18,7 +18,7 @@ ENV WEBHOOK_SECRET_KEY=EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
 
 RUN yarn install
 
-RUN if [ "$WORKER" != "true" ]; then yarn --cwd /packages/web build; fi
+RUN if [ "$WORKER" != "true" ]; then cd packages/web && yarn build; fi
 
 RUN \
   rm -rf /usr/local/share/.cache/ && \

@@ -13,7 +13,7 @@ WORKDIR /app
 
 RUN yarn install
 
-RUN if [ "$WORKER" != "true" ]; then cd /packages/web && yarn build; fi
+RUN if [ "$WORKER" != "true" ]; then cd packages/web && yarn build; fi
 
 RUN \
   rm -rf /usr/local/share/.cache/ && \
