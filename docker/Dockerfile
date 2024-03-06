@@ -8,7 +8,7 @@ RUN \
 
 # RUN git clone https://github.com/RanaN92/LinkHub.git
 
-WORKDIR /
+# WORKDIR /
 # WORKDIR /link_hub
 ENV ENCRYPTION_KEY=RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
 ENV WEBHOOK_SECRET_KEY=EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
