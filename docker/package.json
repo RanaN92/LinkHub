@@ -1,13 +1,12 @@
 {
-  "name": "@automatisch/root",
+  "name": "@LinkHub/root",
   "license": "See LICENSE file",
   "private": true,
   "scripts": {
     "start": "lerna run --stream --parallel --scope=@*/{web,backend} dev",
     "start:web": "lerna run --stream --scope=@*/web dev",
     "start:backend": "lerna run --stream --scope=@*/backend dev",
-    "lint": "lerna run --no-bail --stream --parallel --scope=@*/{web,backend} lint",
-    "build:docs": "cd ./packages/docs && yarn install && yarn build"
+    "lint": "lerna run --no-bail --stream --parallel --scope=@*/{web,backend} lint"
   },
   "workspaces": {
     "packages": [
@@ -16,7 +15,7 @@
     "nohoist": [
       "**/babel-loader",
       "**/webpack",
-      "**/@automatisch/web",
+      "**/@LinkHub/web",
       "**/ajv"
     ]
   },
