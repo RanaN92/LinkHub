@@ -7,8 +7,3 @@
 packages/docs
 packages/e2e-test
 # Exclude all files except Dockerfile
-*
-!Dockerfile
-
-# Include packages/backend directory
-!packages/backend/
