@@ -25,6 +25,7 @@ services:
       - ENCRYPTION_KEY=RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
       - WEBHOOK_SECRET_KEY=EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
       - APP_SECRET_KEY=DX/PNMldvB3pX9Nq1DSFw0lOFy/gfRsQmKKTKgwc1HU1H+tr
+
   worker:
     build:
       context: ./docker
@@ -43,6 +44,7 @@ services:
       - WEBHOOK_SECRET_KEY=EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
       - APP_SECRET_KEY=DX/PNMldvB3pX9Nq1DSFw0lOFy/gfRsQmKKTKgwc1HU1H+tr
       - WORKER=true=
+
   postgres:
     image: 'postgres:14.5'
     environment:
@@ -52,17 +54,18 @@ services:
     ports:
       - 35432:5432  
     volumes:
-      - postgres_data:/var/lib/postgresql/data  # Mount the volume with appropriate permissions
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
       interval: 10s
       timeout: 5s
       retries: 5
+
   redis:
     image: 'redis:7.0.4'
     volumes:
       - redis_data:/data
 
 volumes:
-  postgres_data:  # Define a named volume for PostgreSQL data
+  postgres_data:  
   redis_data:

@@ -3,25 +3,28 @@ FROM rana921/link_hub:tagname
 
 # Install PostgreSQL and required packages
 RUN apk add --no-cache postgresql postgresql-client
-RUN apk add --no-cache postgresql-client
 
 # Initialize PostgreSQL data directory
 RUN mkdir -p /var/lib/postgresql/data
+# Ensure proper permissions for PostgreSQL data directory
 RUN chown -R postgres:postgres /var/lib/postgresql/data
 
 # Configure PostgreSQL to start automatically
 # RUN rc-update add postgresql default
 # Start PostgreSQL service
-# Install PostgreSQL
-RUN apk update && \
-    apk add --no-cache postgresql
+# Install PostgreSQL client (if required)
+# RUN apk update && \
+#     apk add --no-cache postgresql-client
 
 # Copy custom PostgreSQL configuration if needed
 # COPY ./postgresql.conf /etc/postgresql/postgresql.conf
 
 # Expose PostgreSQL port
 EXPOSE 5432
+
+# Copy entrypoint script and set executable permissions
 COPY ./compose-entrypoint.sh /compose-entrypoint.sh
 RUN chmod +x /compose-entrypoint.sh
+
 # Set the entrypoint command
 ENTRYPOINT ["sh", "/compose-entrypoint.sh"]

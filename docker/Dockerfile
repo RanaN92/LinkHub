@@ -8,17 +8,18 @@ RUN \
 
 RUN git clone https://github.com/RanaN92/LinkHub.git
 
-WORKDIR /LinkHub  # Adjust this to the root folder where the 'packages' folder resides
+WORKDIR /LinkHub
+# WORKDIR /link_hub
 
 RUN yarn install
 
-RUN if [ "$WORKER" != "true" ]; then cd packages/web && yarn build; fi
+RUN if [ "$WORKER" != "true" ]; then cd /packages/web && yarn build; fi
 
 RUN \
   rm -rf /usr/local/share/.cache/ && \
   apk del build-dependencies
 
-COPY entrypoint.sh /entrypoint.sh
+COPY ./docker/entrypoint.sh /entrypoint.sh
 
 EXPOSE 3000
 ENTRYPOINT ["sh", "/entrypoint.sh"]
