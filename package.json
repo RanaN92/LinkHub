@@ -3,7 +3,6 @@
   "license": "See LICENSE file",
   "private": true,
   "scripts": {
-
     "start": "lerna run --stream --parallel --scope=@*/{web,backend} dev",
     "start:web": "lerna run --stream --scope=@*/web dev",
     "start:backend": "lerna run --stream --scope=@*/backend dev",

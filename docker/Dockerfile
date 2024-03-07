@@ -9,6 +9,11 @@ RUN \
 RUN git clone https://github.com/RanaN92/LinkHub.git
 
 WORKDIR /LinkHub 
+# RUN yarn install
+# RUN cd /LinkHub
+# Copy package.json and yarn.lock
+# COPY package.json yarn.lock ./
+
 RUN yarn install
 
 RUN if [ "$WORKER" != "true" ]; then cd packages/web && yarn build; fi
