@@ -1,5 +1,5 @@
 {
-  "name": "@automatisch/root",
+  "name": "@LinkHub/root",
   "license": "See LICENSE file",
   "private": true,
   "scripts": {
@@ -16,7 +16,7 @@
     "nohoist": [
       "**/babel-loader",
       "**/webpack",
-      "**/@automatisch/web",
+      "**/@LinkHub/web",
       "**/ajv"
     ]
   },
