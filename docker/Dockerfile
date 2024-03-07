@@ -8,11 +8,16 @@ RUN \
 
 RUN git clone https://github.com/RanaN92/LinkHub.git
 
+<<<<<<<< HEAD:docker/Dockerfile
 WORKDIR /LinkHub 
 # RUN yarn install
 # RUN cd /LinkHub
 # Copy package.json and yarn.lock
 # COPY package.json yarn.lock ./
+========
+# WORKDIR /
+# WORKDIR /link_hub
+>>>>>>>> main:docker/Dockerfile.cloud
 
 RUN yarn install
 
