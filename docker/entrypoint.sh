@@ -2,12 +2,12 @@
 
 set -e
 
-# cd /packages/backend
+cd packages/backend
 
 if [ -n "$WORKER" ]; then
-  yarn --cwd  /packages/web start:worker
+  yarn start:worker
 else
-  yarn --cwd /packages/web db:migrate
-  yarn --cwd /packages/web db:seed:user
-  yarn --cwd /packages/web start
+  yarn db:migrate
+  yarn db:seed:user
+  yarn start
 fi
