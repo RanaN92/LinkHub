@@ -1,8 +1,7 @@
 {
-  "name": "@automatisch/docs",
+  "name": "@rana-acc/docs",
   "version": "0.10.0",
   "license": "See LICENSE file",
-  "description": "The open source Zapier alternative. Build workflow automation without spending time and money.",
   "private": true,
   "scripts": {
     "dev": "vitepress dev pages --port 3002",
@@ -17,15 +16,15 @@
   "contributors": [
     {
       "name": "automatisch contributors",
-      "url": "https://github.com/automatisch/automatisch/graphs/contributors"
+      "url": "https://github.com/RanaN92/LinkHub.git"
     }
   ],
-  "homepage": "https://github.com/automatisch/automatisch#readme",
+  "homepage": "https://github.com/RanaN92/LinkHub#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/automatisch/automatisch.git"
+    "url": "git+https://github.com/RanaN92/LinkHub.git"
   },
   "bugs": {
-    "url": "https://github.com/automatisch/automatisch/issues"
+    "url": "hhttps://github.com/RanaN92/LinkHub/issues"
   }
 }
