@@ -1,4 +1,4 @@
-name: Automatisch CI
+name: LinkHub CI
 on:
   push:
     branches:

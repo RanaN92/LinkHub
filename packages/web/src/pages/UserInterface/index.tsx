@@ -42,7 +42,7 @@ const getPrimaryDarkColor = (color?: string) => color || primaryDarkColor;
 const getPrimaryLightColor = (color?: string) => color || primaryLightColor;
 
 const defaultValues = {
-  title: 'Automatisch',
+  title: 'LinkHub',
   'palette.primary.main': primaryMainColor,
   'palette.primary.dark': primaryDarkColor,
   'palette.primary.light': primaryLightColor,
