@@ -1,12 +1,15 @@
 {
-  "name": "@LinkHub/root",
-  "license": "See LICENSE file",
+  "name": "@rana-acc/root",
+  "version": "0.10.0",
+  "author": "Rana",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "start": "lerna run --stream --parallel --scope=@*/{web,backend} dev",
     "start:web": "lerna run --stream --scope=@*/web dev",
     "start:backend": "lerna run --stream --scope=@*/backend dev",
-    "lint": "lerna run --no-bail --stream --parallel --scope=@*/{web,backend} lint"
+    "lint": "lerna run --no-bail --stream --parallel --scope=@*/{web,backend} lint",
+    "build:docs": "cd ./packages/docs && yarn install && yarn build"
   },
   "workspaces": {
     "packages": [
@@ -15,7 +18,7 @@
     "nohoist": [
       "**/babel-loader",
       "**/webpack",
-      "**/@LinkHub/web",
+      "**/@rana-acc/web",
       "**/ajv"
     ]
   },
@@ -29,6 +32,7 @@
     "prettier": "^2.5.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.yarnpkg.com/"
   }
 }

@@ -4,7 +4,7 @@ services:
     env: docker
     dockerfilePath: ./docker/Dockerfile
     dockerContext: ./docker
-    repo: https://github.com/RanaN92/LinkHub.git
+    repo: https://github.com/RanaN92/LinkHub
     autoDeploy: false
     envVars:
       - key: HOST
@@ -48,7 +48,7 @@ services:
     env: docker
     dockerfilePath: ./docker/Dockerfile
     dockerContext: ./docker
-    repo: https://github.com/RanaN92/LinkHub.git
+    repo: https://github.com/RanaN92/LinkHub
     autoDeploy: false
     envVars:
       - key: WORKER

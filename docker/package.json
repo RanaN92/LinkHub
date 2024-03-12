@@ -1,5 +1,5 @@
 {
-  "name": "@LinkHub/root",
+  "name": "@rana-acc/root",
   "license": "See LICENSE file",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "nohoist": [
       "**/babel-loader",
       "**/webpack",
-      "**/@LinkHub/web",
+      "**/@rana-acc/web",
       "**/ajv"
     ]
   },
