@@ -1,29 +1,49 @@
 #!/bin/sh
 
-set -e
+# set -e
 
-# Move to the appropriate directory
-cd /LinkHub/packages/backend/bin
+# # Move to the appropriate directory
+# cd ./packages/backend/bin
 
-# Ensure the script has executable permissions
-chmod +x ./database
 
-# Verify the ownership of the database script
-chown $USER:$USER ./database
-# Print the current directory for debugging
-pwd
+# # Run the script as the root user to avoid permission issues
+# # Ensure the script has executable permissions
+# chmod +x ./database
 
-# List files to verify the script's presence and permissions
-ls -l
+# # Verify the ownership of the database script
+# chown root:root ./database
+# # Ensure the script has executable permissions
+#  pwd
 
-# Execute the appropriate command based on the WORKER environment variable
-if [ -n "$WORKER" ]; then
-  # Execute database start-worker
-  ./database start-worker
-else
-  # Execute database start
-  ./database start
-fi
+# # # List files to verify the script's presence and permissions
+#  ls -l
+# # Run the script as the root user to avoid permission issues
+# ./database start-worker
+
+# set -e
+
+# # Move to the appropriate directory
+# cd /LinkHub/packages/backend/bin
+
+# # Ensure the script has executable permissions
+# chmod +x ./database
+
+# # Verify the ownership of the database script
+# chown $USER:$USER ./database
+# # Print the current directory for debugging
+# pwd
+
+# # List files to verify the script's presence and permissions
+# ls -l
+
+# # Execute the appropriate command based on the WORKER environment variable
+# if [ -n "$WORKER" ]; then
+#   # Execute database start-worker
+#   ./database start-worker
+# else
+#   # Execute database start
+#   ./database start
+# fi
 
 
 
@@ -45,18 +65,18 @@ fi
 # fi
 #!/bin/sh
 
-# set -e
+set -e
 
-# cd ./packages/backend
-# # cp .env  ../../docker/.env
-# # yarn add dotenv
-# # Set NODE_PATH to include global node_modules directory
-# # export NODE_PATH=$(yarn global dir)/node_modules
-# if [ -n "$WORKER" ]; then
-#   yarn start:worker
-# else
-#   yarn db:create
-#   yarn db:migrate
-#   yarn db:seed:user
-#   yarn start
-# fi
+cd ./packages/backend
+# cp .env  ../../docker/.env
+ yarn add dotenv
+# Set NODE_PATH to include global node_modules directory
+# export NODE_PATH=$(yarn global dir)/node_modules
+if [ -n "$WORKER" ]; then
+  yarn start:worker
+else
+  yarn db:create
+  yarn db:migrate
+  yarn db:seed:user
+  yarn start
+fi
