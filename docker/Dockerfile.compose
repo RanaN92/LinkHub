@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile0-[=][oi]:1
+# syntax=docker/dockerfile:1
 FROM rana921/link_hub:tagname
 WORKDIR /LinkHub
 

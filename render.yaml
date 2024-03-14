@@ -106,8 +106,8 @@ envVarGroups:
       - key: PORT
         value: 443
       - key: ENCRYPTION_KEY
-        generateValue: true
+        value: RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
       - key: WEBHOOK_SECRET_KEY
-        generateValue: true
+        value: EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
       - key: APP_SECRET_KEY
-        generateValue: true
+        value: DX/PNMldvB3pX9Nq1DSFw0lOFy/gfRsQmKKTKgwc1HU1H+tr

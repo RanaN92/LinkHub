@@ -41,8 +41,8 @@ jobs:
       - run: yarn --frozen-lockfile && yarn lerna bootstrap
       - run: cd packages/backend && yarn start
         env:
-          ENCRYPTION_KEY: sample_encryption_key
-          WEBHOOK_SECRET_KEY: sample_webhook_secret_key
+          ENCRYPTION_KEY:  RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
+          WEBHOOK_SECRET_KEY: EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
       - run: echo "🍏 This job's status is ${{ job.status }}."
   start-backend-worker:
     runs-on: ubuntu-latest
@@ -61,8 +61,8 @@ jobs:
       - run: yarn --frozen-lockfile && yarn lerna bootstrap
       - run: cd packages/backend && yarn start:worker
         env:
-          ENCRYPTION_KEY: sample_encryption_key
-          WEBHOOK_SECRET_KEY: sample_webhook_secret_key
+          ENCRYPTION_KEY: RMTY8Ld+j8ZgqQ9cnbD61I/N50D8ogVkLp+SJTCuUUamRsTP
+          WEBHOOK_SECRET_KEY: EKqL4jUbrwCpjmHqmoU7k3c+Pw2FosvrvBUOK2RPXfdmLT81
       - run: echo "🍏 This job's status is ${{ job.status }}."
   build-web:
     runs-on: ubuntu-latest
