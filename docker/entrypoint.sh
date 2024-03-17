@@ -1,16 +1,14 @@
 #!/bin/sh
 
-#!/bin/sh
-
 set -e
 
 yarn cache clean
 yarn add @rana-acc/backend -W
 yarn install
 if [ -n "$WORKER" ]; then
-  npx @rana-acc/backend start-worker
+  yarn workspace @rana-acc/backend start-worker
 else
-  npx @rana-acc/backend start
+  yarn workspace @rana-acc/backend start
 fi
 
 
