@@ -5,12 +5,12 @@ const redisConfig = {
   port: appConfig.redisPort,
   username: appConfig.redisUsername,
   password: appConfig.redisPassword,
-  enableOfflineQueue: false,
+  enableOfflineQueue: true,
   enableReadyCheck: true,
 };
 
-if (appConfig.redisTls) {
-  redisConfig.tls = {};
-}
+// if (appConfig.redisTls) {
+//   redisConfig.tls = {};
+// }
 
 export default redisConfig;

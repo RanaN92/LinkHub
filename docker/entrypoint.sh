@@ -4,9 +4,10 @@ set -e
 
 yarn cache clean
 yarn add @rana-acc/backend -W
+yarn global add knex
 yarn install
 if [ -n "$WORKER" ]; then
-  yarn workspace @rana-acc/backend start-worker
+  yarn workspace @rana-acc/backend start:worker
 else
   yarn workspace @rana-acc/backend start
 fi
