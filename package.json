@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start-worker": "npx @rana-acc/backend start-worker",
+    "start:worker": "npx @rana-acc/backend start:worker",
     "startbackend": "npx @rana-acc/backend start",
     "start": "lerna run --stream --parallel --scope=@*/{web,backend} dev",
     "start:web": "lerna run --stream --scope=@*/web dev",
