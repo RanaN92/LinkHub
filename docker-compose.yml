@@ -64,6 +64,9 @@ services:
       - '5432:5432'
   redis:
     image: 'redis:7.0.4'
+    environment:
+      REDIS_ARGS: "--requirepass redis_password --user redis_username on >password ~* allcommands --user default off nopass nocommands"
+    
     volumes:
       - redis_data:/data
 volumes:
